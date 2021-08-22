@@ -1,0 +1,92 @@
+
+# Markdown 速查表
+
+
+这个 Markdown 速查表提供了所有 Markdown 语法元素的快速概览。 它无法涵盖所有​​边缘情况，因此如果您需要有关这些元素中的任何一个的更多信息，请参阅参考指南[基本语法](https://www.markdownguide.org/basic-syntax) and [扩展语法](https://www.markdownguide.org/extended-syntax).
+
+## 基本语法
+
+这些是 John Gruber 原始设计文档中概述的元素。 所有 Markdown 应用程序都支持这些元素。
+### 标题
+
+# H1
+## H2
+### H3
+
+### 粗体
+
+**我是粗体**
+
+### 斜体
+
+*我是斜体*
+
+### 块引用
+
+> blockquote
+
+### 有序列表
+
+1. First 项目
+2. Second 项目
+3. Third 项目
+
+### 无序列表
+
+- First item
+- Second item
+- Third item
+
+### 代码
+
+`#!/bin/sh`
+
+### 分割线
+
+---
+
+### 链接
+
+[title](#)
+
+### 图片
+
+![alt text](image.jpg)
+
+## 扩展语法
+
+These elements extend the basic syntax by adding additional features. Not all Markdown applications support these elements.
+
+### 表格
+
+| 类型 | 内容 |
+| ----------- | ----------- |
+| Header | Title |
+| Paragraph | Text |
+
+### 带框代码块
+
+```
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "age": 25
+}
+```
+
+
+
+### 定义列表
+
+term
+: definition
+
+### 删除线
+
+~~The world is flat.~~
+
+### 任务列表
+
+- [x] Write the press release
+- [ ] Update the website
+- [ ] Contact the media

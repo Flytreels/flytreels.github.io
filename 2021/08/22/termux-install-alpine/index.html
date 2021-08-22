@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>在Termux上安装纯的AlpineLinux | EmptyOnly</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="这种方法也同样适用于其他的发行版，比如Arch Debian等等
+
+前言
+这里可能就会问道了，Termux不是有很多的安装Linux发行版的工具吗（proot-distro,anlinux等等），为什么还需要这样麻烦安装？
+当然肯定有优势
+[√] 从官方获取最小体积Rootfs
+[√] 安全，快捷，更新迅速，方便后续扩展
+[√] 不被第三方魔改或者加入风险
+
+下 ...">
+    
+    <link rel="preload" href="/assets/css/0.styles.89986362.css" as="style"><link rel="preload" href="/assets/js/app.9f3d3a4e.js" as="script"><link rel="preload" href="/assets/js/6.2dfc40ec.js" as="script"><link rel="preload" href="/assets/js/3.9ddb8fd3.js" as="script"><link rel="preload" href="/assets/js/13.dddfe5fc.js" as="script"><link rel="prefetch" href="/assets/js/10.18827ef6.js"><link rel="prefetch" href="/assets/js/11.c5a9d16a.js"><link rel="prefetch" href="/assets/js/12.86cbea65.js"><link rel="prefetch" href="/assets/js/14.a0ef2bac.js"><link rel="prefetch" href="/assets/js/4.59a2902a.js"><link rel="prefetch" href="/assets/js/5.62f4ae27.js"><link rel="prefetch" href="/assets/js/7.22e1ca27.js"><link rel="prefetch" href="/assets/js/8.9decc841.js"><link rel="prefetch" href="/assets/js/9.9c59bb97.js"><link rel="prefetch" href="/assets/js/vuejs-paginate.c5318f42.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.89986362.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div id="vuepress-theme-blog__global-layout"><section id="header-wrapper"><header id="header"><div class="header-wrapper"><div class="title"><a href="/" class="nav-link home-link">EmptyOnly </a></div> <div class="header-right-wrap"><ul class="nav"><li class="nav-item"><a href="/" class="nav-link">Blog</a></li><li class="nav-item"><a href="/tag/" class="nav-link">Tags</a></li></ul> <div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></div></header></section> <div id="mobile-header"><div class="mobile-header-bar"><div class="mobile-header-title"><a href="/" class="nav-link mobile-home-link">EmptyOnly </a> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></div> <div class="mobile-menu-wrapper"><hr class="menu-divider"> <ul class="mobile-nav"><li class="mobile-nav-item"><a href="/" class="nav-link">Blog</a></li><li class="mobile-nav-item"><a href="/tag/" class="nav-link">Tags</a></li> <li class="mobile-nav-item"><!----></li></ul></div></div></div> <div class="content-wrapper"><div id="vuepress-theme-blog__post-layout"><article itemscope="itemscope" itemtype="https://schema.org/BlogPosting" class="vuepress-blog-theme-content"><header><h1 itemprop="name headline" class="post-title">
+        在Termux上安装纯的AlpineLinux
+      </h1> <div class="post-meta"><div itemprop="publisher author" itemtype="http://schema.org/Person" itemscope="itemscope" class="post-meta-author"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-navigation"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg> <span itemprop="name">Flyteee</span> <span itemprop="address">   in Earth</span></div> <div class="post-meta-date"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> <time pubdate itemprop="datePublished" datetime="2021-8-22">
+      Sun Aug 22 2021
+    </time></div> <ul itemprop="keywords" class="post-meta-tags"><li class="post-tag" data-v-42ccfcd5><a href="/tag/Linux" data-v-42ccfcd5><span data-v-42ccfcd5>Linux</span></a></li><li class="post-tag" data-v-42ccfcd5><a href="/tag/Termux" data-v-42ccfcd5><span data-v-42ccfcd5>Termux</span></a></li><li class="post-tag" data-v-42ccfcd5><a href="/tag/Android" data-v-42ccfcd5><span data-v-42ccfcd5>Android</span></a></li></ul></div></header> <div itemprop="articleBody" class="content__default"><blockquote><p>这种方法也同样适用于其他的发行版，比如Arch Debian等等</p></blockquote> <h2 id="前言"><a href="#前言" class="header-anchor">#</a> 前言</h2> <p>这里可能就会问道了，Termux不是有很多的安装Linux发行版的工具吗（proot-distro,anlinux等等），为什么还需要这样麻烦安装？<br>
+当然肯定有优势</p> <ul><li>[√] 从官方获取最小体积Rootfs</li> <li>[√] 安全，快捷，更新迅速，方便后续扩展</li> <li>[√] 不被第三方魔改或者加入风险</li></ul> <h2 id="下载rootfs"><a href="#下载rootfs" class="header-anchor">#</a> 下载Rootfs</h2> <p>一般下载Rootfs都是从官方软件源或者镜像站或者LXC镜像站下载</p> <p>这里下载alpine的rootfs只需要在官方镜像站就能下载到，有些发行版只能从lxc-images下载到（当然你也可使用各种Bootstrap工具去构建一个最新的）</p> <p><a href="https://mirrors.bfsu.edu.cn/alpine/v3.14/releases/" target="_blank" rel="noopener noreferrer">Alpine 3.14下载<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a><br>
+一般情况顺藤摸瓜，看一下releases Rootfs images这类的文件夹</p> <p>rootfs即根文件系统，一般情况以tar.gz或tar.xz格式打包，下载后需要解压到目标目录，大多情况为容器所使用，而我们在Termux上的chroot或者proot就都属于容器类型了，不能算是完整的系统，也没有真正模拟出一个计算机去运行发行版</p> <h2 id="安装rootfs"><a href="#安装rootfs" class="header-anchor">#</a> 安装ROOTFS</h2> <p>使用wget命令下载rootfs<br>
+目录随意，别是内部存储或者SD卡就行<br> <img src="/Screenshot_20210822-113455.png" alt="Image"></p> <div class="language- extra-class"><pre class="language-text"><code>wget https://mirrors.bfsu.edu.cn/alpine/v3.14/releases/aarch64/alpine-minirootfs-3.14.0_rc4-aarch64.tar.gz # 下载rootfs到当前目录
+mkdir alpine # 新建rootfs存放文件夹（名称随意）
+proot --link2symlink tar xzvf alpine-minirootfs-3.14.0_rc4-aarch64.tar.gz -C alpine # 解压rootfs，同时使用proot的link2symlink功能模拟硬链接（没ROOT使用此方法）
+</code></pre></div><p>执行之后就安装到alpine文件夹辣！</p> <h2 id="启动容器"><a href="#启动容器" class="header-anchor">#</a> 启动容器</h2> <p>同时启动容器也非常简单，你也可以把他写进一个sh文件或者.bashrc让他在termux自启</p> <div class="language- extra-class"><pre class="language-text"><code>unset LD_PRELOAD
+proot -b /sys -b /proc -b /dev -r ./alpine/ --sysvipc --link2symlink -0 -w /root /bin/ash -l
+</code></pre></div><p>执行上述命令就能启动容器内的shell</p> <table><thead><tr><th>参数</th> <th>解释</th></tr></thead> <tbody><tr><td>-b</td> <td>挂载目录</td></tr> <tr><td>-r</td> <td>指定Rootfs目录</td></tr> <tr><td>--sysvipc</td> <td>在 proot 中处理 System V IPC 系统调用</td></tr> <tr><td>--link2symlink</td> <td>用符号链接替换硬链接，假装它们真的是硬链接</td></tr> <tr><td>-0</td> <td>模拟ROOT权限</td></tr> <tr><td>-w</td> <td>设置初始目录</td></tr> <tr><td>/bin/ash -l</td> <td>将ash作为进入容器环境后执行的第一个程序</td></tr></tbody></table> <blockquote><p>挂载 /proc /dev 是必须的，否则容器内的大多数程序都无法正常工作！</p></blockquote> <h2 id="基本配置"><a href="#基本配置" class="header-anchor">#</a> 基本配置</h2> <p>一般默认的rootfs都是最基本的没有任何配置过的，一般需要配置DNS和软件源即可
+使用以下命令即可配置DNS为 8.8.8.8的谷歌DNS</p> <div class="language- extra-class"><pre class="language-text"><code>echo &quot;nameserver 8.8.8.8&quot;&gt;/etc/resolv.conf
+</code></pre></div><p>软件源大多官方Wiki都有</p> <div class="language- extra-class"><pre class="language-text"><code>localhost:~# neofetch
+       .hddddddddddddddddddddddh.          root@localhost
+      :dddddddddddddddddddddddddd:         ----------------
+     /dddddddddddddddddddddddddddd/        OS: Alpine Linux v3.14 aarch64
+    +dddddddddddddddddddddddddddddd+       Kernel: 5.10.56-lineageos
+  `sdddddddddddddddddddddddddddddddds`     Uptime: 357 day, 12 hours, 48 mins
+ `ydddddddddddd++hdddddddddddddddddddy`    Packages: 19 (apk)
+.hddddddddddd+`  `+ddddh:-sdddddddddddh.   Shell: ash
+hdddddddddd+`      `+y:    .sddddddddddh   Terminal: proot
+ddddddddh+`   `//`   `.`     -sddddddddd   CPU: Qualcomm MSM 8939 (8) @ 3.497GH
+ddddddh+`   `/hddh/`   `:s-    -sddddddd   Memory: 1456MiB / 16500MiB
+ddddh+`   `/+/dddddh/`   `+s-    -sddddd
+ddd+`   `/o` :dddddddh/`   `oy-    .yddd
+hdddyo+ohddyosdddddddddho+oydddy++ohdddh
+.hddddddddddddddddddddddddddddddddddddh.
+ `yddddddddddddddddddddddddddddddddddy`
+  `sdddddddddddddddddddddddddddddddds`
+    +dddddddddddddddddddddddddddddd+
+     /dddddddddddddddddddddddddddd/
+      :dddddddddddddddddddddddddd:
+       .hddddddddddddddddddddddh.
+
+localhost:~#
+</code></pre></div><blockquote><p>总体来说这种方法还不错，6条命令一键式安装，关键是步骤非常详细能了解全部的用途</p></blockquote> <h2 id="the-end"><a href="#the-end" class="header-anchor">#</a> The end</h2></div> <footer><!----> <hr> <!----></footer></article> <div class="sticker vuepress-toc"><div class="vuepress-toc-item vuepress-toc-h2 active"><a href="#前言" title="前言">前言</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#下载rootfs" title="下载Rootfs">下载Rootfs</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#安装rootfs" title="安装ROOTFS">安装ROOTFS</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#启动容器" title="启动容器">启动容器</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#基本配置" title="基本配置">基本配置</a></div><div class="vuepress-toc-item vuepress-toc-h2"><a href="#the-end" title="The end">The end</a></div></div></div></div> <footer class="footer" data-v-3d9deeb8><div class="footer-left-wrap" data-v-3d9deeb8><ul class="contact" data-v-3d9deeb8><li class="contact-item" data-v-3d9deeb8><a href="https://github.com/flytreels" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-3d9deeb8><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github" data-v-3d9deeb8><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" data-v-3d9deeb8></path></svg>
+          
+        </a></li><li class="contact-item" data-v-3d9deeb8><a href="/email.html" class="nav-link" data-v-3d9deeb8><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail" data-v-3d9deeb8><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" data-v-3d9deeb8></path><polyline points="22,6 12,13 2,6" data-v-3d9deeb8></polyline></svg>
+          
+        </a></li></ul></div> <div class="footer-right-wrap" data-v-3d9deeb8><ul class="copyright" data-v-3d9deeb8><li class="copyright-item" data-v-3d9deeb8><a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="nav-link external" data-v-3d9deeb8>Privacy Policy</a></li><li class="copyright-item" data-v-3d9deeb8>MIT Licensed | Copyright © 2020-2021 Flyteee</li></ul></div></footer></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.9f3d3a4e.js" defer></script><script src="/assets/js/6.2dfc40ec.js" defer></script><script src="/assets/js/3.9ddb8fd3.js" defer></script><script src="/assets/js/13.dddfe5fc.js" defer></script>
+  </body>
+</html>
